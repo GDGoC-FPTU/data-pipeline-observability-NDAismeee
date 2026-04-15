@@ -15,9 +15,9 @@ Chạy `agent_simulation.py` với 2 bộ dữ liệu và ghi lại kết quả:
 
 ---
 
-## 2. Phân tích & nhận xét
+## 2. Phân tích & nhận xét (phan tich & nhan xet)
 
-### Tại sao Agent trả lời sai khi dùng Garbage Data?
+### Tại sao Agent trả lời sai khi dùng Garbage Data? (tai sao)
 
 Dữ liệu “rác” làm agent trả lời kém chính xác vì logic truy vấn rất đơn giản: lọc theo `category` (Electronics) rồi chọn sản phẩm có `price` cao nhất. Khi dữ liệu bị “poisoned”, chỉ cần một outlier cực lớn (ví dụ `price = 999999`) là agent sẽ chọn kết quả bất thường (Nuclear Reactor) thay vì sản phẩm hợp lý trong bối cảnh thực tế. Ngoài outlier, các vấn đề khác như **ID trùng lặp** làm thông tin mâu thuẫn/không nhất quán, **giá trị null** ở `category`/`price` làm bước lọc dữ liệu không ổn định, và **sai kiểu dữ liệu** (chuỗi trong cột giá) có thể gây sai lệch khi tính toán hoặc phân tích. Tóm lại, chất lượng dữ liệu kém không chỉ khiến agent có thể “crash” mà còn có thể dẫn đến kết luận sai một cách rất tự tin, vì agent không có cơ chế phát hiện bất thường hay kiểm tra ràng buộc dữ liệu.
 
